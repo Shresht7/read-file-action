@@ -1595,17 +1595,73 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 //  Library
 const core = __importStar(__nccwpck_require__(186));
+const fs = __importStar(__nccwpck_require__(561));
+const path = __importStar(__nccwpck_require__(411));
+const config_1 = __nccwpck_require__(373);
+const metadata_1 = __nccwpck_require__(252);
 //  ======
 //  ACTION
 //  ======
 function action() {
     return __awaiter(this, void 0, void 0, function* () {
-        core.notice('Hello World!');
+        const filePath = path.join(config_1.workspace, config_1.src);
+        const contents = yield fs.promises.readFile(filePath, { encoding: 'utf-8' });
+        console.log(contents);
+        core.setOutput(metadata_1.outputs.contents, contents);
     });
 }
 //  -----------------
 exports["default"] = action;
 //  -----------------
+
+
+/***/ }),
+
+/***/ 373:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parse = exports.src = exports.workspace = void 0;
+//  Library
+const core = __importStar(__nccwpck_require__(186));
+const metadata_1 = __nccwpck_require__(252);
+//  ======
+//  CONFIG
+//  ======
+if (!process.env.GITHUB_WORKSPACE) {
+    throw new Error('Invalid GITHUB_WORKSPACE. You need to checkout this repository using the actions/checkout@v3 github-action for the GITHUB_WORKSPACE environment variable');
+}
+/** GitHub Workspace URL */
+exports.workspace = process.env.GITHUB_WORKSPACE;
+/** Path to the source file with markdown-slots */
+exports.src = core.getInput(metadata_1.inputs.src, { required: true });
+/** Parse as (`yaml` | `json`) */
+exports.parse = core.getInput(metadata_1.inputs.parse);
 
 
 /***/ }),
@@ -1675,6 +1731,29 @@ run();
 
 /***/ }),
 
+/***/ 252:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+//  ========
+//  METADATA
+//  ========
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.outputs = exports.inputs = void 0;
+/** Metadata inputs */
+exports.inputs = {
+    src: 'src',
+    parse: 'parse'
+};
+/** Metadata outputs */
+exports.outputs = {
+    contents: 'contents'
+};
+
+
+/***/ }),
+
 /***/ 491:
 /***/ ((module) => {
 
@@ -1720,6 +1799,22 @@ module.exports = require("https");
 
 "use strict";
 module.exports = require("net");
+
+/***/ }),
+
+/***/ 561:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:fs");
+
+/***/ }),
+
+/***/ 411:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:path");
 
 /***/ }),
 
