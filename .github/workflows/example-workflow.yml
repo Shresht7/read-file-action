@@ -50,7 +50,8 @@ jobs:
         with:
           slots: |
             - slot: example
-              content: ${{ steps.read-file.outputs.contents }}
+              content: |
+                ${{ steps.read-file.outputs.contents }}
 
       # Push Changes 🌎
       # ===============
