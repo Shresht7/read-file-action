@@ -15,7 +15,7 @@ Use this action in a workflow step
   id: read-file
   uses: Shresht7/read-file-action@v1
   with:
-    src: ./README.md
+    path: ./README.md
 ```
 
 You can then access the output contents using [expressions](https://docs.github.com/en/actions/learn-github-actions/expressions).
@@ -33,7 +33,7 @@ You can also explicitly state the type of the file by passing it in as a input
   id: read-file
   uses: Shresht7/read-file-action@v1
   with:
-    src: ./package.json
+    path: ./package.json
     type: json
 ```
 

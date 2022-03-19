@@ -18,7 +18,7 @@ branding:
 # ======
 
 inputs:
-  src:
+  path:
     description: Path to the file to read (can be a URL)
     required: true
 

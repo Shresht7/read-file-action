@@ -11,13 +11,13 @@ on:
   # Manual workflow dispatch
   workflow_dispatch:
     inputs:
-      src:
+      path:
         description: Path to the file to read
         required: true
         default: ./README.md
 
       type:
-        description: Parse file as (`yaml` | `json`)
+        description: Parse file as `yaml` or `json`
         required: false
 
 # Jobs
@@ -40,7 +40,7 @@ jobs:
         id: read-file
         uses: ./
         with:
-          src: ${{ github.event.inputs.src }}
+          path: ${{ github.event.inputs.path }}
           type: ${{ github.event.inputs.type }}
 
       # Show Output 📱
