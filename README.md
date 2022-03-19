@@ -3,7 +3,7 @@
 ---
 
 <!-- slot: description  -->
-A GitHub Action read, parse and expose contents of a file
+A GitHub Action to read a file and export its contents
 <!-- /slot -->
 
 ## 📖 Usage
@@ -42,18 +42,18 @@ If you need to retrieve the raw string, set the `type` to something like `raw` o
 ## 📋 Inputs
 
 <!-- slot: inputs  -->
-| Input  | Description                             |     Default |   Required   |
-| :----- | :-------------------------------------- | ----------: | :----------: |
-| `src`  | Path to the file to read (can be a URL) | `undefined` | **required** |
-| `type` | Parse the file contents as (`yaml`      |     `json`) | `undefined`  |  |
+| Input  | Description                                 |     Default |   Required   |
+| :----- | :------------------------------------------ | ----------: | :----------: |
+| `path` | Path to the file to read (can be a URL)     | `undefined` | **required** |
+| `type` | Parse the file contents as `yaml` or `json` | `undefined` |              |
 <!-- /slot -->
 
 ## 📋 Outputs
 
 <!-- slot: outputs  -->
-| Output     | Description   |
-| :--------- | :------------ |
-| `contents` | File contents |
+| Output     | Description              |
+| :--------- | :----------------------- |
+| `contents` | The contents of the file |
 <!-- /slot -->
 
 ## 📃 Workflow Example
