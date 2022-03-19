@@ -37,7 +37,14 @@ jobs:
       # ============
 
       - name: read-file
+        id: read-file
         uses: ./
         with:
           src: ${{ github.event.inputs.src }}
           type: ${{ github.event.inputs.type }}
+
+      # Show Output 📱
+      # ==============
+
+      - name: show output
+        run: echo ${{ steps.read-file.outputs.contents }}
