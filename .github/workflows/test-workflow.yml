@@ -1,0 +1,33 @@
+# ===========
+# TEST ACTION
+# ===========
+
+name: Test-Read-File
+
+# Activation Events
+# =================
+
+on:
+  # Manual workflow dispatch
+  workflow_dispatch:
+
+# Jobs
+# ====
+
+jobs:
+  read-file:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions Checkout ✅
+      # ===================
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      # Read File 📄
+      # ============
+
+      - name: read-file
+        uses: ./
+        with:
+          src: ./README.md

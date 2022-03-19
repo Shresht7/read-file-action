@@ -1,0 +1,34 @@
+# ================
+# READ FILE ACTION
+# ================
+
+name: read-file-action
+author: Shresht7
+description: A GitHub Action read, parse and expose contents of a file
+
+runs:
+  using: node16
+  main: dist/index.js
+
+branding:
+  icon: align-left
+  color: white
+
+# Inputs
+# ======
+
+inputs:
+  src:
+    description: Path to the file to read (can be a URL)
+    required: true
+
+  parse:
+    description: Parse the file contents as (`yaml` | `json`)
+    required: false
+
+# Outputs
+# =======
+
+outputs:
+  contents:
+    description: File contents
