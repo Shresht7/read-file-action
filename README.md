@@ -37,7 +37,7 @@ You can also explicitly state the type of the file by passing it in as a input
     type: json
 ```
 
-If you need to retrieve the raw string, set the `type` to something like `raw` or `null`.
+If you need to retrieve the raw string, set the `type` to something like `raw` or `string`.
 
 ---
 

@@ -39,6 +39,7 @@ jobs:
         uses: Shresht7/read-file-action@main
         with:
           path: ./.github/workflows/example-workflow.yml
+          type: raw
 
       # Markdown Slots 📋
       # =================
