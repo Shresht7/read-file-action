@@ -22,7 +22,7 @@ inputs:
     description: Path to the file to read (can be a URL)
     required: true
 
-  parse:
+  type:
     description: Parse the file contents as (`yaml` | `json`)
     required: false
 

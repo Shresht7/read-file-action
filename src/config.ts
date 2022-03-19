@@ -18,4 +18,4 @@ export const workspace = process.env.GITHUB_WORKSPACE
 export const src = core.getInput(inputs.src, { required: true })
 
 /** Parse as (`yaml` | `json`) */
-export const parse = core.getInput(inputs.parse)
+export const type = core.getInput(inputs.type)
