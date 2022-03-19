@@ -4,15 +4,15 @@
 
 name: read-file-action
 author: Shresht7
-description: A GitHub Action read, parse and expose contents of a file
+description: A GitHub Action to read a file and export its contents
 
 runs:
   using: node16
   main: dist/index.js
 
 branding:
-  icon: align-left
-  color: white
+  icon: file-text
+  color: red
 
 # Inputs
 # ======
@@ -23,7 +23,7 @@ inputs:
     required: true
 
   type:
-    description: Parse the file contents as (`yaml` | `json`)
+    description: Parse the file contents as `yaml` or `json`
     required: false
 
 # Outputs
@@ -31,4 +31,4 @@ inputs:
 
 outputs:
   contents:
-    description: File contents
+    description: The contents of the file

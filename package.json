@@ -1,7 +1,7 @@
 {
   "name": "read-file-action",
   "version": "0.1.0",
-  "description": "A GitHub Action read, parse and expose contents of a file",
+  "description": "A GitHub Action to read a file and export its contents",
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/index.ts --source-map --license licenses.txt",

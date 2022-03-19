@@ -1,0 +1,45 @@
+# ================
+# READ FILE ACTION
+# ================
+
+name: Read File Example
+
+# Activation Events
+# =================
+
+on:
+  # Manual workflow dispatch
+  workflow_dispatch:
+
+# Jobs
+# ====
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions Checkout ✅
+      # ===================
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      # Read File 📄
+      # ============
+
+      - name: read-file
+        id: read-file
+        uses: Shresht7/read-file-action@main
+        with:
+          src: ./.github/workflows/example-workflow.yml
+
+      # Markdown Slots 📋
+      # =================
+
+      - name: markdown-slots
+        id: markdown-slots
+        uses: Shresht7/markdown-slots@main
+        with:
+          slots: |
+            - slot: example
+              content: ${{ steps.read-file.outputs.contents }}
