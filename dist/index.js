@@ -5769,7 +5769,7 @@ if (!process.env.GITHUB_WORKSPACE) {
 /** GitHub Workspace URL */
 exports.workspace = process.env.GITHUB_WORKSPACE;
 /** Path to the source file with markdown-slots */
-exports.src = core.getInput(metadata_1.inputs.src, { required: true });
+exports.src = core.getInput(metadata_1.inputs.path, { required: true });
 /** Parse as (`yaml` | `json`) */
 exports.type = core.getInput(metadata_1.inputs.type) || path.extname(exports.src).slice(1);
 
@@ -6016,7 +6016,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.outputs = exports.inputs = void 0;
 /** Metadata inputs */
 exports.inputs = {
-    src: 'src',
+    path: 'path',
     type: 'type'
 };
 /** Metadata outputs */
