@@ -67,6 +67,9 @@ The following workflow snippet demonstrates how this action can be used to read 
 <summary>Click to show</summary>
 
 <!-- slot: example {prefix: ```yaml} | {suffix: ```} -->
+```yaml
+[object Object]
+```
 <!-- /slot -->
 
 </details>
