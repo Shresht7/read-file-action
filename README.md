@@ -1,8 +1,10 @@
 <h1 align='center'>Read File Action</h1>
 
+<p align='center'>
 <!-- slot: description  -->
 A GitHub Action to read a file and export its contents
 <!-- /slot -->
+</p>
 
 ---
 
