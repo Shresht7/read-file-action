@@ -2,17 +2,25 @@
 
 ---
 
-<!-- slot: description -->
+<!-- slot: description  -->
+A GitHub Action read, parse and expose contents of a file
 <!-- /slot -->
 
 ## Usage
 
 ## Inputs
 
-<!-- slot: inputs -->
+<!-- slot: inputs  -->
+| Input  | Description                                  |     Default |   Required   |
+| :----- | :------------------------------------------- | ----------: | :----------: |
+| `src`  | Path to the file to read (can be a URL)      | `undefined` | **required** |
+| `type` | Parse the file contents as (`yaml` | `json`) | `undefined` |              |
 <!-- /slot -->
 
 ## Outputs
 
-<!-- slot: outputs -->
+<!-- slot: outputs  -->
+| Output     | Description   |
+| :--------- | :------------ |
+| `contents` | File contents |
 <!-- /slot -->
