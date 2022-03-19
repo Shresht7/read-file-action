@@ -8,6 +8,13 @@ name: Read File Example
 # =================
 
 on:
+  # When this workflow file changes
+  push:
+    branches:
+      - main
+    paths:
+      - ./.github/workflows/example-workflow.yml
+
   # Manual workflow dispatch
   workflow_dispatch:
 

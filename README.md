@@ -1,10 +1,10 @@
 <h1 align='center'>Read File Action</h1>
 
----
-
 <!-- slot: description  -->
 A GitHub Action to read a file and export its contents
 <!-- /slot -->
+
+---
 
 ## 📖 Usage
 
@@ -39,6 +39,8 @@ You can also explicitly state the type of the file by passing it in as a input
 
 If you need to retrieve the raw string, set the `type` to something like `raw` or `null`.
 
+---
+
 ## 📋 Inputs
 
 <!-- slot: inputs  -->
@@ -60,8 +62,16 @@ If you need to retrieve the raw string, set the `type` to something like `raw` o
 
 The following workflow snippet demonstrates how this action can be used to read a file and  its contents can be used by other actions. The snippet itself is placed here using this action in conjunction with the [markdown-slots](https://www.github.com/Shresht7/markdown-slots) action.
 
+<details>
+
+<summary>Click to show</summary>
+
 <!-- slot: example {prefix: ```yaml} | {suffix: ```} -->
-<!--  -->
+<!-- /slot -->
+
+</details>
+
+---
 
 ## 📑 License
 
