@@ -5758,6 +5758,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.type = exports.src = exports.workspace = void 0;
 //  Library
 const core = __importStar(__nccwpck_require__(2186));
+const path = __importStar(__nccwpck_require__(9411));
 const metadata_1 = __nccwpck_require__(3252);
 //  ======
 //  CONFIG
@@ -5770,7 +5771,7 @@ exports.workspace = process.env.GITHUB_WORKSPACE;
 /** Path to the source file with markdown-slots */
 exports.src = core.getInput(metadata_1.inputs.src, { required: true });
 /** Parse as (`yaml` | `json`) */
-exports.type = core.getInput(metadata_1.inputs.type);
+exports.type = core.getInput(metadata_1.inputs.type) || path.extname(exports.src).slice(1);
 
 
 /***/ }),

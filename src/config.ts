@@ -1,5 +1,6 @@
 //  Library
 import * as core from '@actions/core'
+import * as path from 'node:path'
 import { inputs } from './metadata'
 
 //  ======
@@ -18,4 +19,4 @@ export const workspace = process.env.GITHUB_WORKSPACE
 export const src = core.getInput(inputs.src, { required: true })
 
 /** Parse as (`yaml` | `json`) */
-export const type = core.getInput(inputs.type)
+export const type = core.getInput(inputs.type) || path.extname(src).slice(1)
