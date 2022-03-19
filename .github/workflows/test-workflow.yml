@@ -10,6 +10,15 @@ name: Test-Read-File
 on:
   # Manual workflow dispatch
   workflow_dispatch:
+    inputs:
+      src:
+        description: Path to the file to read
+        required: true
+        default: ./README.md
+
+      type:
+        description: Parse file as (`yaml` | `json`)
+        required: false
 
 # Jobs
 # ====
@@ -30,4 +39,5 @@ jobs:
       - name: read-file
         uses: ./
         with:
-          src: ./README.md
+          src: ${{ github.events.inputs.src }}
+          type: ${{ github.events.inputs.type }}
