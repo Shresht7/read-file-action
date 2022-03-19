@@ -39,5 +39,5 @@ jobs:
       - name: read-file
         uses: ./
         with:
-          src: ${{ github.events.inputs.src }}
-          type: ${{ github.events.inputs.type }}
+          src: ${{ github.event.inputs.src }}
+          type: ${{ github.event.inputs.type }}
