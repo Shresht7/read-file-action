@@ -108,9 +108,9 @@ jobs:
 
       - name: read-file
         id: read-file
-        uses: Shresht7/read-file-action@main
+        uses: Shresht7/read-file-action@v1
         with:
-          path: ./.github/workflows/example-workflow.yml
+          path: .github/workflows/example-workflow.yml
 
       # Markdown Slots 📋
       # =================
