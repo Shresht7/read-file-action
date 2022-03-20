@@ -18,5 +18,8 @@ export const workspace = process.env.GITHUB_WORKSPACE
 /** Path to the source file with markdown-slots */
 export const src = core.getInput(inputs.path, { required: true })
 
-/** Parse as (`yaml` | `json`) */
-export const type = core.getInput(inputs.type) || path.extname(src).slice(1)
+const parse = core.getInput(inputs.parse)
+/** Parse as (`yaml`, `json`, or `raw string`) */
+export const type = parse.toString() === 'true'
+    ? path.extname(src).slice(1)
+    : parse

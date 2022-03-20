@@ -5,7 +5,7 @@
 /** Metadata inputs */
 export const inputs = {
     path: 'path',
-    type: 'type'
+    parse: 'parse'
 } as const
 
 /** Metadata outputs */

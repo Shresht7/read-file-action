@@ -22,8 +22,8 @@ inputs:
     description: Path to the file to read (can be a URL)
     required: true
 
-  type:
-    description: Parse the file contents as `yaml` or `json`
+  parse:
+    description: Parse the file contents as `yaml` or `json`. If `true` will try to automatically determine the file-extension or you can also set it to `yaml` or `json` manually. If `false`, it will return the raw string
     required: false
 
 # Outputs

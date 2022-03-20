@@ -20,15 +20,13 @@ Use this action in a workflow step
     path: ./README.md
 ```
 
-You can then access the output contents using [expressions](https://docs.github.com/en/actions/learn-github-actions/expressions).
+You can then access the output contents using [expressions][1].
 
 `${{ steps.read-file.outputs.contents }}`
 
 > Note: this assumes you set the id as `read-file`.
 
-The action will, by default, try to automatically parse `yaml` or `json` files and export the contents as a stringified JSON. This output can be used by `fromJSON` in an [expression](https://docs.github.com/en/actions/learn-github-actions/expressions) or `JSON.parse` in an action.
-
-You can also explicitly state the type of the file by passing it in as a input
+You can tell this action to automatically parse `yaml` or `json` by specifying the `parse` input.
 
 ```yaml
 - name: read-file
@@ -36,10 +34,12 @@ You can also explicitly state the type of the file by passing it in as a input
   uses: Shresht7/read-file-action@v1
   with:
     path: ./package.json
-    type: json
+    parse: json
 ```
 
-If you need to retrieve the raw string, set the `type` to something like `raw` or `string`.
+> You can also set `parse` to `true` to let the action automatically determine the file-extension.
+
+The parsed contents will be available as a stringified JSON. This output can be used by [`fromJSON`][2] in an [expression][1] or `JSON.parse` in an action.
 
 ---
 
@@ -62,7 +62,7 @@ If you need to retrieve the raw string, set the `type` to something like `raw` o
 
 ## 📃 Workflow Example
 
-The following workflow snippet demonstrates how this action can be used to read a file and  its contents can be used by other actions. The snippet itself is placed here using this action in conjunction with the [markdown-slots](https://www.github.com/Shresht7/markdown-slots) action.
+The following workflow snippet demonstrates how this action can be used to read a file and  its contents can be used by other actions. The snippet itself is placed here using this action in conjunction with the [markdown-slots][3] action.
 
 <details>
 
@@ -158,3 +158,9 @@ jobs:
 ## 📑 License
 
 [MIT](./LICENSE)
+
+<!-- LINKS -->
+
+[1]: https://docs.github.com/en/actions/learn-github-actions/expressions
+[2]: https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
+[3]: https://www.github.com/Shresht7/markdown-slots
