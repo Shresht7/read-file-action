@@ -85,7 +85,7 @@ on:
     branches:
       - main
     paths:
-      - ./.github/workflows/example-workflow.yml
+      - .github/workflows/example-workflow.yml
 
   # Manual workflow dispatch
   workflow_dispatch:
@@ -111,7 +111,6 @@ jobs:
         uses: Shresht7/read-file-action@main
         with:
           path: ./.github/workflows/example-workflow.yml
-          type: raw
 
       # Markdown Slots 📋
       # =================
@@ -124,7 +123,7 @@ jobs:
             - slot: example
               content: ${{ toJSON(steps.read-file.outputs.contents) }}
           # steps.read-file.outputs.contents is itself a YAML string (example-workflow.yml)
-          # which causes markdown-slots to parse it as a part of content and fail.
+          # which causes markdown-slots action to try and parse it as a part of content and fail.
           # the toJSON function forces the results into a one-line string.
 
       # Push Changes 🌎
