@@ -70,7 +70,84 @@ The following workflow snippet demonstrates how this action can be used to read 
 
 <!-- slot: example {prefix: ```yaml} | {suffix: ```} -->
 ```yaml
-[object Object]
+# ================
+# READ FILE ACTION
+# ================
+
+name: Read File Example
+
+# Activation Events
+# =================
+
+on:
+  # When this workflow file changes
+  push:
+    branches:
+      - main
+    paths:
+      - ./.github/workflows/example-workflow.yml
+
+  # Manual workflow dispatch
+  workflow_dispatch:
+
+# Jobs
+# ====
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions Checkout ✅
+      # ===================
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      # Read File 📄
+      # ============
+
+      - name: read-file
+        id: read-file
+        uses: Shresht7/read-file-action@main
+        with:
+          path: ./.github/workflows/example-workflow.yml
+          type: raw
+
+      # Markdown Slots 📋
+      # =================
+
+      - name: markdown-slots
+        id: markdown-slots
+        uses: Shresht7/markdown-slots@main
+        with:
+          slots: |
+            - slot: example
+              content: ${{ toJSON(steps.read-file.outputs.contents) }}
+          # steps.read-file.outputs.contents is itself a YAML string (example-workflow.yml)
+          # which causes markdown-slots to parse it as a part of content and fail.
+          # the toJSON function forces the results into a one-line string.
+
+      # Push Changes 🌎
+      # ===============
+
+      - name: check for changes
+        id: git-diff
+        run: |
+          if git diff --exit-code; then
+            echo "::set-output name=changes_exist::false"
+          else
+            echo "::set-output name=changes_exist::true"
+          fi
+
+      - name: push
+        if: ${{ steps.git-diff.outputs.changes_exist == 'true' }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'Update README.md 📄'
+          git push
+
 ```
 <!-- /slot -->
 
