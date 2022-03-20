@@ -50,7 +50,10 @@ jobs:
         with:
           slots: |
             - slot: example
-              content: '${{ steps.read-file.outputs.contents }}'
+              content: ${{ toJSON(steps.read-file.outputs.contents) }}
+          # steps.read-file.outputs.contents is itself a YAML string (example-workflow.yml)
+          # which causes markdown-slots to parse it as a part of content and fail.
+          # the toJSON function forces the results into a one-line string.
 
       # Push Changes 🌎
       # ===============
