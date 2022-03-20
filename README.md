@@ -46,10 +46,10 @@ The parsed contents will be available as a stringified JSON. This output can be 
 ## 📋 Inputs
 
 <!-- slot: inputs  -->
-| Input   | Description                                                                                                                                                                                                  |     Default |   Required   |
-| :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------: | :----------: |
-| `path`  | Path to the file to read (can be a URL)                                                                                                                                                                      | `undefined` | **required** |
-| `parse` | Parse the file contents as `yaml` or `json`. If `true` will try to automatically determine the file-extension or you can also set it to `yaml` or `json` manually. If `false`, it will return the raw string | `undefined` |              |
+| Input   | Description                                                                                                                                                                                                |     Default |   Required   |
+| :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------: | :----------: |
+| `path`  | Path to the file to read (can be a URL)                                                                                                                                                                    | `undefined` | **required** |
+| `parse` | Parse the file contents as `yaml` or `json`. If `true`, will try to automatically determine the file-extension. You can set it to `yaml` or `json` manually too. If `false`, it will return the raw string | `undefined` |              |
 <!-- /slot -->
 
 ## 📋 Outputs
