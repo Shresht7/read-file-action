@@ -46,10 +46,10 @@ The parsed contents will be available as a stringified JSON. This output can be 
 ## 📋 Inputs
 
 <!-- slot: inputs  -->
-| Input  | Description                                 |     Default |   Required   |
-| :----- | :------------------------------------------ | ----------: | :----------: |
-| `path` | Path to the file to read (can be a URL)     | `undefined` | **required** |
-| `type` | Parse the file contents as `yaml` or `json` | `undefined` |              |
+| Input   | Description                                                                                                                                                                                                  |     Default |   Required   |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------: | :----------: |
+| `path`  | Path to the file to read (can be a URL)                                                                                                                                                                      | `undefined` | **required** |
+| `parse` | Parse the file contents as `yaml` or `json`. If `true` will try to automatically determine the file-extension or you can also set it to `yaml` or `json` manually. If `false`, it will return the raw string | `undefined` |              |
 <!-- /slot -->
 
 ## 📋 Outputs
@@ -85,7 +85,7 @@ on:
     branches:
       - main
     paths:
-      - ./.github/workflows/example-workflow.yml
+      - .github/workflows/example-workflow.yml
 
   # Manual workflow dispatch
   workflow_dispatch:
@@ -111,7 +111,6 @@ jobs:
         uses: Shresht7/read-file-action@main
         with:
           path: ./.github/workflows/example-workflow.yml
-          type: raw
 
       # Markdown Slots 📋
       # =================
@@ -124,7 +123,7 @@ jobs:
             - slot: example
               content: ${{ toJSON(steps.read-file.outputs.contents) }}
           # steps.read-file.outputs.contents is itself a YAML string (example-workflow.yml)
-          # which causes markdown-slots to parse it as a part of content and fail.
+          # which causes markdown-slots action to try and parse it as a part of content and fail.
           # the toJSON function forces the results into a one-line string.
 
       # Push Changes 🌎
