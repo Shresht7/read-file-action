@@ -5770,8 +5770,11 @@ if (!process.env.GITHUB_WORKSPACE) {
 exports.workspace = process.env.GITHUB_WORKSPACE;
 /** Path to the source file with markdown-slots */
 exports.src = core.getInput(metadata_1.inputs.path, { required: true });
-/** Parse as (`yaml` | `json`) */
-exports.type = core.getInput(metadata_1.inputs.type) || path.extname(exports.src).slice(1);
+const parse = core.getInput(metadata_1.inputs.parse);
+/** Parse as (`yaml`, `json`, or `raw string`) */
+exports.type = parse.toString() === 'true'
+    ? path.extname(exports.src).slice(1)
+    : parse;
 
 
 /***/ }),
@@ -6017,7 +6020,7 @@ exports.outputs = exports.inputs = void 0;
 /** Metadata inputs */
 exports.inputs = {
     path: 'path',
-    type: 'type'
+    parse: 'parse'
 };
 /** Metadata outputs */
 exports.outputs = {
