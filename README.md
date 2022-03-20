@@ -62,7 +62,7 @@ The parsed contents will be available as a stringified JSON. This output can be 
 
 ## 📃 Workflow Example
 
-The following workflow snippet demonstrates how this action can be used to read a file and  its contents can be used by other actions. The snippet itself is placed here using this action in conjunction with the [markdown-slots][3] action.
+The following workflow snippet demonstrates how this action can be used to read a file and its contents can be used by other actions. The snippet itself is placed here using this action in conjunction with the [markdown-slots][3] action.
 
 <details>
 

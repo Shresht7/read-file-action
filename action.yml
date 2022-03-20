@@ -23,7 +23,7 @@ inputs:
     required: true
 
   parse:
-    description: Parse the file contents as `yaml` or `json`. If `true` will try to automatically determine the file-extension or you can also set it to `yaml` or `json` manually. If `false`, it will return the raw string
+    description: Parse the file contents as `yaml` or `json`. If `true`, will try to automatically determine the file-extension. You can set it to `yaml` or `json` manually too. If `false`, it will return the raw string
     required: false
 
 # Outputs
