@@ -68,7 +68,7 @@ The following workflow snippet demonstrates how this action can be used to read 
 
 <summary>Click to show</summary>
 
-<!-- slot: example | prepend: ```yaml, append: ``` -->
+<!-- slot: example  prepend: ```yaml, append: ``` -->
 ```yaml
 # ================
 # READ FILE ACTION
@@ -117,7 +117,7 @@ jobs:
 
       - name: markdown-slots
         id: markdown-slots
-        uses: Shresht7/markdown-slots@main
+        uses: Shresht7/markdown-slots@v1
         with:
           slots: |
             - slot: example
