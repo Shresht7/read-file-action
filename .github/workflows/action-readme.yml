@@ -36,14 +36,14 @@ jobs:
 
       - name: action-metadata
         id: action-metadata
-        uses: Shresht7/action-metadata@main
+        uses: Shresht7/action-metadata@v1
 
       # Markdown Slots 📋
       # =================
 
       - name: markdown-slots
         id: markdown-slots
-        uses: Shresht7/markdown-slots@main
+        uses: Shresht7/markdown-slots@v1
         with:
           slots: |
             - slot: description
