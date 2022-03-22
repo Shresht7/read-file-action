@@ -68,7 +68,7 @@ The following workflow snippet demonstrates how this action can be used to read 
 
 <summary>Click to show</summary>
 
-<!-- slot: example {prefix: ```yaml} | {suffix: ```} -->
+<!-- slot: example | prepend: ```yaml, append: ``` -->
 ```yaml
 # ================
 # READ FILE ACTION
