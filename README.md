@@ -1,10 +1,59 @@
-<h1 align='center'>Read File Action</h1>
+<!-- ================ -->
+<!-- READ FILE ACTION -->
+<!-- ================ -->
+
+<h1 align='center'>
+  Read File Action
+</h1>
+
+<!-- ================= -->
+<!-- REPOSITORY BADGES -->
+<!-- ================= -->
+
+<div align='center'>
+
+[![Release](https://img.shields.io/github/v/release/Shresht7/read-file-action?style=for-the-badge)](https://github.com/Shresht7/Gist-Mirror/releases)
+[![License](https://img.shields.io/github/license/Shresht7/read-file-action?style=for-the-badge)](./LICENSE)
+
+</div>
+
+<!-- =========== -->
+<!-- DESCRIPTION -->
+<!-- =========== -->
 
 <p align='center'>
 <!-- slot: description  -->
 A GitHub Action to read a file and export its contents
 <!-- /slot -->
 </p>
+
+<!-- =============== -->
+<!-- WORKFLOW BADGES -->
+<!-- =============== -->
+
+<div align='center'>
+
+[![Test](https://github.com/Shresht7/read-file-action/actions/workflows/test.yml/badge.svg)](https://github.com/Shresht7/read-file-action/actions/workflows/test.yml)
+[![Validate](https://github.com/Shresht7/read-file-action/actions/workflows/validate.yml/badge.svg)](https://github.com/Shresht7/read-file-action/actions/workflows/validate.yml)
+[![Action Readme](https://github.com/Shresht7/read-file-action/actions/workflows/action-readme.yml/badge.svg)](https://github.com/Shresht7/read-file-action/actions/workflows/action-readme.yml)
+
+</div>
+
+<!-- ================= -->
+<!-- TABLE OF CONTENTS -->
+<!-- ================= -->
+
+<details>
+
+<summary align='center'>Table of Contents</summary>
+
+- [📖 Usage](#-usage)
+- [📋 Inputs](#-inputs)
+- [📋 Outputs](#-outputs)
+- [📃 Workflow Example](#-workflow-example)
+- [📑 License](#-license)
+
+</details>
 
 ---
 
@@ -68,7 +117,7 @@ The following workflow snippet demonstrates how this action can be used to read 
 
 <summary>Click to show</summary>
 
-<!-- slot: example | prepend: ```yaml, append: ``` -->
+<!-- slot: example, prepend: ```yaml, append: ``` -->
 ```yaml
 # ================
 # READ FILE ACTION
