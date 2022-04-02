@@ -117,7 +117,7 @@ The following workflow snippet demonstrates how this action can be used to read 
 
 <summary>Click to show</summary>
 
-<!-- slot: example,  prepend: ```yaml, append: ``` -->
+<!-- slot: example,   prepend: ```yaml, append: ``` -->
 ```yaml
 # ================
 # READ FILE ACTION
@@ -138,27 +138,12 @@ on:
 
   # Manual workflow dispatch
   workflow_dispatch:
-    inputs:
-      test:
-        description: Test run
-        required: true
-        default: "false"
-
-      path:
-        description: Path to the file to read
-        required: true
-        default: ./README.md
-
-      parse:
-        description: Parse file as `yaml` or `json`
-        required: false
 
 # Jobs
 # ====
 
 jobs:
   update-readme:
-    if: ${{ github.event.inputs.test != 'true' }}
     runs-on: ubuntu-latest
     steps:
       # Actions Checkout ✅
@@ -210,32 +195,6 @@ jobs:
           git add .
           git commit -m 'Update README.md 📄'
           git push
-
-  echo:
-    if: ${{ github.event.inputs.test == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      # Actions Checkout ✅
-      # ===================
-
-      - name: checkout
-        uses: actions/checkout@v3
-
-      # Read File 📄
-      # ============
-
-      - name: read-file
-        id: read-file
-        uses: ./
-        with:
-          path: ${{ github.event.inputs.path }}
-          parse: ${{ github.event.inputs.parse }}
-
-      # Show Output 📱
-      # ==============
-
-      - name: show output
-        run: echo ${{ steps.read-file.outputs.contents }}
 
 ```
 <!-- /slot -->
