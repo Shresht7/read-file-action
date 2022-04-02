@@ -11,11 +11,6 @@ on:
   # Manual workflow dispatch
   workflow_dispatch:
     inputs:
-      test:
-        description: Test run
-        required: true
-        default: "false"
-
       path:
         description: Path to the file to read
         required: true
@@ -27,7 +22,6 @@ on:
 
 jobs:
   echo:
-    if: ${{ github.event.inputs.test == 'true' }}
     runs-on: ubuntu-latest
     steps:
       # Actions Checkout ✅
