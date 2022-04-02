@@ -2,5 +2,6 @@
 //  HELPER FUNCTIONS
 //  ================
 
-export * from './readFile'
+export * from './isURL'
 export * from './parseFile'
+export * from './readFile'
