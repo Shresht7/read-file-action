@@ -44,4 +44,4 @@ jobs:
       # ==============
 
       - name: show output
-        run: echo ${{ steps.read-file.outputs.contents }}
+        run: echo ${{ toJSON(steps.read-file.outputs.contents) }}
